@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model RestaurantInfo
+
+<h3 class="text-center">Are you sure you'd like to delete @Model.RestaurantName from the list?</h3>
+
+<form style="text-align: center;" method="post" asp-controller="Home" asp-action="Delete">
+    <button type="submit" class="btn btn-danger text-center">Delete</button>
+    <a  asp-controller="Home" asp-action="RestaurantList" class="btn btn-dark text-center">Cancel</a>
+    <input type="hidden" asp-for="RestaurantId" />
+    @*Buttons added to confirm or decline deletion*@
+</form>

@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Restaurant List";
+}
+
+@model List<RestaurantInfo>
+
+@*Create the table*@
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold bold text-center">
+        <tr>
+            <td>Restaurant Name</td>
+            <td>Price</td>
+            <td>Rating</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.RestaurantName</td>
+                <td>@x.Price</td>
+                <td>@x.Rating</td>
+
+                <td><a class="btn btn-block btn-success" asp-controller="Home" asp-action="Edit" asp-route-restaurantid="@x.RestaurantId">Edit</a></td>
+                <td><a class="btn btn-block btn-danger" asp-controller="Home" asp-action="Delete" asp-route-restaurantid="@x.RestaurantId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a class="btn btn-info" asp-controller="Home" asp-action="AddRestaurant">Add Restaurant</a>

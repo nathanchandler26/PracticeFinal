@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Add a Restaurants";
+}
+
+@model PracticeFinal.Models.RestaurantInfo
+
+<div>
+    <form method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+        @*Show errors*@
+
+        <h4>Add Restaurant</h4>
+
+        <div class="form-group">
+            <label asp-for="RestaurantName">Restaurant Name:</label>
+            <input asp-for="RestaurantName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price">Price:</label>
+            @*<input asp-for="Price" class="form-control" />*@
+            <select asp-for="Price">
+                <option value="">Select Price</option>
+                <option value="$">$</option>
+                <option value="$$">$$</option>
+                <option value="$$$">$$$</option>
+                <option value="$$$$">$$$$</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Rating">Rating (1-10):</label>
+            <input asp-for="Rating" class="form-control" />
+        </div>
+
+        <div class="float-end">
+            <input class="btn btn-info" type="submit" value="Save Restaurant" />
+        </div>
+
+    </form>
+</div>
